@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+/* src/styles.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* styles.css */
+/* userslist.component.css */
+
+/* Adjust margin and padding */
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+/* Style for the "User List" heading */
+.text-2xl {
+  font-size: 1.5rem; /* You can adjust the font size as needed */
+}
+
+/* Style for the "Add New User" button */
+.btn-success {
+  background-color: #28a745; /* Adjust the background color */
+  color: #fff; /* Adjust the text color */
+  padding: 0.5rem 1rem; /* Adjust padding */
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.btn-success:hover {
+  background-color: #218838; /* Adjust the background color on hover */
+}
+
+/* Style for the table headers */
+.bg-blue-500 {
+  background-color: #007bff; /* Adjust the background color */
+}
+
+/* Style for the links in the table */
+.text-blue-500 {
+  color: #007bff; /* Adjust the link color */
+}
+
+.text-blue-500:hover {
+  text-decoration: underline; /* Add underline on hover */
+}
+
+/* Style for the table rows */
+.table tbody tr:hover {
+  background-color: #f8f9fa; /* Adjust the background color on hover */
+}
+/* Importing Bootstrap SCSS file. */
+/* // @import '~bootstrap/scss/bootstrap'; */
+
+/* You can add global styles to this file, and also import other style files */

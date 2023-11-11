@@ -1,0 +1,101 @@
+<!-- <div (click)="userList()"></div>
+<div *ngIf="apiData" class="mt-8">
+  <h2 class="text-2xl font-bold mb-4">User List</h2>
+  <div class="container mx-auto">
+
+    <div class="flex justify-end mb-4">
+      <button
+        [routerLink]="['/users']"
+        class="btn btn-success"
+        id="addProject-btn"
+      >
+        <i class="mdi mdi-plus me-1"></i> Add New User
+      </button>
+    </div>
+    <div >
+      <div >
+        <div >
+          <table class="table project-list-table w-full">
+            <thead class="bg-blue-500 text-white">
+              <tr>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of apiData">
+                <td>
+                  <h5>
+                    <h3> {{ item.username }}</h3>
+                  </h5>
+                </td>
+                <td>{{ item.email }}</td>
+                <td>{{ item.first_name }}</td>
+                <td>{{ item.last_name }}</td>
+                <td>
+                  <button
+                    [routerLink]="['/users', item.id]"
+                    (click)="userList()"
+                    class="btn btn-success btn-sm"
+                  >
+                  <i class="bx bx-edit"></i>Update
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<div (click)="userList()"></div>
+
+<div *ngIf="apiData" class="mt-8">
+  <h2 class="text-2xl font-bold mb-4">User List</h2>
+  <div class="container mx-auto">
+
+    <div class="flex justify-end mb-4">
+      <button [routerLink]="['/users']" class="btn btn-success" id="addProject-btn">
+        <i class="mdi mdi-plus me-1"></i> Add New User
+      </button>
+    </div>
+
+    <!-- Search bar -->
+    <div class="col-sm">
+      <div class="search-box me-2 d-inline-block">
+    <div class="position-relative">
+      <input
+        type="text"
+        placeholder="Search by username, email, or user ID"
+        class="form-control"
+        [(ngModel)]="searchTerm"
+        (input)="applyFilter()"
+      />
+    </div>
+  </div>
+</div>
+
+    <!-- Grid view -->
+    <div class="grid grid-cols-4 gap-4">
+      <div *ngFor="let item of filteredApiData">
+        <div class="p-4 bg-white border rounded">
+          <h5 class="font-bold">{{ item.username }}</h5>
+          <p>Email: {{ item.email }}</p>
+          <p>First Name: {{ item.first_name }}</p>
+          <p>Last Name: {{ item.last_name }}</p>
+          <p>Status: {{ item.status }}</p>
+          <button (click)="deleteClient(item.id)" class="btn btn-danger btn-sm">
+            <i class="bx bx-trash"></i> Delete
+          </button>
+          <button [routerLink]="['/users', item.id]" class="btn btn-success btn-sm">
+            <i class="bx bx-edit"></i> Update
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

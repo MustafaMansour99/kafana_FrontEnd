@@ -1,0 +1,34 @@
+/* Add these styles to your CSS file */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.form-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Style for the valid input */
+.form-input:valid {
+  border-color: #4caf50; /* Green border color for valid input */
+}
+
+/* Style for the invalid input */
+.form-input:invalid {
+  border-color: #f44336; /* Red border color for invalid input */
+}
+
+/* Style for the title message */
+.form-input:invalid + .form-label::after {
+  content: ' (Please enter 7 digits)';
+  color: #f44336;
+}

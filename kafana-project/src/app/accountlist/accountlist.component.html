@@ -1,0 +1,47 @@
+<div (click)="getAccountList()"></div>
+
+<div *ngIf="apiData" class="mt-8">
+  <h2 class="text-2xl font-bold mb-4">User List</h2>
+  <div class="container mx-auto">
+
+    <div class="flex justify-end mb-4">
+      <button [routerLink]="['/account']" class="btn btn-success" id="addProject-btn">
+        <i class="mdi mdi-plus me-1"></i> Add New User
+      </button>
+    </div>
+
+    <!-- Search bar -->
+    <div class="col-sm">
+      <div class="search-box me-2 d-inline-block">
+    <div class="position-relative">
+      <input
+        type="text"
+        placeholder="Search by username, email, or user ID"
+        class="form-control"
+        [(ngModel)]="searchTerm"
+        (input)="applyFilter()"
+      />
+    </div>
+  </div>
+</div>
+
+    <!-- Grid view -->
+    <div class="grid grid-cols-4 gap-4">
+      <div *ngFor="let item of filteredApiData">
+        <div class="p-4 bg-white border rounded">
+          <h5 class="font-bold">User ID: {{ item.user_id }}</h5>
+          <p>Account Number: {{ item.account_number }}</p>
+          <p>Balance: {{ item.balance }}</p>
+          <p>Currency: {{ item.currency }}</p>
+          <p>Status: {{ item.status }}</p>
+          <!-- <button (click)="deleteClient(item.id)" class="btn btn-danger btn-sm">
+            <i class="bx bx-trash"></i> Delete
+          </button> -->
+          <button [routerLink]="['/account', item.id]" class="btn btn-success btn-sm">
+            <i class="bx bx-edit"></i> Update
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
